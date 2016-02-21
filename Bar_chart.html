@@ -1,0 +1,41 @@
+
+<!DOCTYPE html>
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<script type="text/javascript" src="//code.jquery.com/jquery-1.9.1.js"></script>
+<title></title>
+<script type='text/javascript'>
+$(function () {
+    $('#container').highcharts({
+        chart: {type: 'column'},
+        title: {text: "Enseignants, habitants et eleves dans dix regions du Mali"},
+        subtitle: { text: 'Source: opendata.ml, opendataforafrica'},
+        xAxis: {
+            categories: ['abeibara', 'tin essako', 'tenenkou', 'youwarou', 'douentza', 'yanfolila', 'kati', 'kangaba', 'tessalit', 'bamako'],
+            crosshair: true },
+        yAxis: { min: 0, itle: {text: 'Effectifs'}},
+        tooltip: {
+           valueDecimals: 0,
+            headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
+            pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
+                '<td style="padding:0"><b>{point.y} </b></td></tr>',
+            footerFormat: '</table>', shared: true, useHTML: true },
+        plotOptions: { column: {pointPadding: 0.2, borderWidth: 0 }},
+       
+           series: [{
+            name: "Nombre d'habitants pour un enseignant",
+            data: [1287.0, 573.0, 556.0546075085324, 516.77619047619044, 485.48228346456693, 164.64164086687308, 148.56413043478261, 140.81065918653576, 134.07563025210084, 129.7753405017921],
+                color:'rgb(255, 123, 0)'
+        }, {
+            name: "Nombre d'eleves pour un enseignant",
+            data: [22.875, 9.8571428571428577, 39.276450511945391, 31.185714285714287, 45.54330708661417, 38.542569659442727, 38.425155279503109, 35.215988779803645, 18.016806722689076, 33.604086021505374],
+                visible:false,
+                color:'rgb(244, 186, 48)'
+        }] });});
+</script>
+</head><body>
+<script src="https://code.highcharts.com/highcharts.js"></script>
+<script src="https://code.highcharts.com/modules/exporting.js"></script>
+<div id="container" style="min-width: 100%; height: 500px; margin: 0 auto"></div>
+ </body>
+</html>
